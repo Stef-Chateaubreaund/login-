@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;
+    }
+    .container{
+        width: 400px;
+        height: 380px;
+        display: flex;
+        justify-content: space-between;
+        }
+    .rigth input {
+        display: inline-block;
+        border-radius: 10px;
+        font-size: 10px;
+        }
+    .rigth{
+        background: pink; 
+        border-radius: 20px;
+        width:45%;
+        padding-left: 8px;
+        font-size: 13px;
+    }
+    .left{
+        padding-left: 8px;
+        border-radius: 20px;
+        width: 45%;
+        height: 380px;
+        background-color: rgb(225, 176, 206);
+        font-size: 13px;
+    }
+    .left input{
+        width: 90%;
+        display: inline-block;
+        border-radius: 10px;
+        font-size: 10px;
+        
+        }
+    .botao{
+        border-radius: 30px;
+
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="rigth">
+    <form action="/registration" method="POST">
+        {% with messages = get_flashed_messages() %}     
+            {% if messages %}                          
+                {% for message in messages %}            
+                <p style="color:red">{{message}}</p>                   
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h3>Register</h3>
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name"> <br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" name="email"><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password"><br>
+        <label for="confirm_pass">Confirm Password:</label><br>
+        <input type="password" name="confirm_pass"><br>
+        <input type="submit" name="Register" class="botao"> </form></div>
+<div class="left">
+    <form action="/login" method="POST">
+        <h3>Login</h3>
+        <label for="email">Email:</label>
+        <input type="text" name="email"><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password"><br>
+        <button type=submit name="Login" class="botao">Login</button>
+    </form>
+</div>
+</div>
+</body>
+</html>

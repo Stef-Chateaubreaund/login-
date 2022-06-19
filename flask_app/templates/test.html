@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .container{
+        width: 950px;
+        height: 400px;
+        background-color: #d19e94;
+        }
+    .left{
+        width: 300px;
+        height: 400px;
+        background-color: aquamarine;
+    }
+    .right{
+        width: 300px;
+        height: 400px;
+        background-color: blueviolet;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        
+    <div class="right">
+    <form action="/registration" method="POST">
+        {% with messages = get_flashed_messages() %}     
+            {% if messages %}                          
+                {% for message in messages %}            
+                <p style="color:red">{{message}}</p>                   
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h1>Register</h1>
+        <br>
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name"> <br><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" name="email"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password"><br><br>
+        <label for="confirm_pass">Confirm Password:</label>
+        <input type="password" name="confirm_pass"><br><br>
+        <input type="submit" name="Register">
+
+    </form>
+</div>
+<div class="left">
+    <form action="/login" method="POST">
+        <h1>Login</h1>
+        <label for="email">Email:</label>
+        <input type="text" name="email"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password"><br><br>
+        <input type="submit" name="Login">
+    </form>
+</div>
+</div>
+</body>
+</html>
